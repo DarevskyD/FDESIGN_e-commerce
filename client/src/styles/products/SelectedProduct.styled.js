@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const ImageContainer = styled.div`  
+export const ImageContainer = styled.div`
   height: 80vh;
   flex: 1;
   display: flex;
@@ -25,7 +25,7 @@ export const ImageContainer = styled.div`
 export const Image = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;  
+  object-fit: cover;
 `;
 
 export const InfoContainer = styled.div`
@@ -87,18 +87,28 @@ export const FilterColorContainer = styled.div`
   display: flex;
   align-items: center;
 `;
-export const FilterColor = styled.div`
+
+export const FilterColorBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 22px;
   height: 22px;
   margin: 0 10px 0 0;
   border-radius: 50%;
-  background-color: ${({ color }) => color};
-  border: 1px solid ${({ color }) => color};
+  border: 1px solid ${({ theme }) => theme.colors.light};
   cursor: pointer;
   transition: all 0.5s ease;
   &:hover {
-    border: 1px solid ${({ theme }) => theme.colors.primary};
+    border: 1px solid ${({ theme }) => theme.colors.secondary};
   }
+`;
+
+export const FilterColor = styled.div`
+  width: 18px;
+  height: 18px;
+  background-color: ${({ color }) => color};
+  border-radius: 50%;
 `;
 
 export const AmountContainer = styled.div``;

@@ -36,7 +36,7 @@ import {
   SummaryItem,
   SummaryItemText,
   SummaryItemPrice,
-} from '../../styles/cart/Cart.styled';
+} from '../../styles/Cart/Cart.styled';
 
 const Cart = () => {
   return (

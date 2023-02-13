@@ -17,13 +17,14 @@ import {
   FilterContainer,
   FilterTitle,
   FilterColorContainer,
+  FilterColorBox,
   FilterColor,
   IconContainer,
   AmountContainer,
   QuantityContainer,
   QuantityTitle,
   ChangeQuantityBlock,
-  Amount,  
+  Amount,
 } from '../../styles/products/SelectedProduct.styled';
 
 const SelectedProduct = () => {
@@ -49,9 +50,15 @@ const SelectedProduct = () => {
           <FilterContainer>
             <FilterTitle>Color:</FilterTitle>
             <FilterColorContainer>
-              <FilterColor color="black"></FilterColor>
-              <FilterColor color="red"></FilterColor>
-              <FilterColor color="yellow"></FilterColor>
+              <FilterColorBox>
+                <FilterColor color="black"></FilterColor>
+              </FilterColorBox>
+              <FilterColorBox>
+                <FilterColor color="red"></FilterColor>
+              </FilterColorBox>
+              <FilterColorBox>
+                <FilterColor color="yellow"></FilterColor>
+              </FilterColorBox>
             </FilterColorContainer>
           </FilterContainer>
           <AmountContainer>

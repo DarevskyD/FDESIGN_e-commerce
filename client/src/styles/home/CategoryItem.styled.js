@@ -43,6 +43,7 @@ export const Info = styled.div`
 `;
 
 export const Title = styled.h2`
+  color: ${({ theme }) => theme.colors.primary};
   margin-bottom: 15px;
   font-size: 40px;
   font-weight: 600;

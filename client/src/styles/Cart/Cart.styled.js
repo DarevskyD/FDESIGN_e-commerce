@@ -113,7 +113,7 @@ export const Details = styled.div`
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   @media only screen and (${device.sm}) {
     padding: 10px 10px 10px 20px;
   }
