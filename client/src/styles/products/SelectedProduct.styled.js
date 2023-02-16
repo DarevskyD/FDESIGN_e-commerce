@@ -88,27 +88,13 @@ export const FilterColorContainer = styled.div`
   align-items: center;
 `;
 
-export const FilterColorBox = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 22px;
-  height: 22px;
-  margin: 0 10px 0 0;
-  border-radius: 50%;
-  border: 1px solid ${({ theme }) => theme.colors.light};
-  cursor: pointer;
-  transition: all 0.5s ease;
-  &:hover {
-    border: 1px solid ${({ theme }) => theme.colors.secondary};
-  }
-`;
-
 export const FilterColor = styled.div`
   width: 18px;
   height: 18px;
+  margin: 0 10px 0 0;
   background-color: ${({ color }) => color};
   border-radius: 50%;
+  border: 1px solid ${({ theme }) => theme.colors.secondary};
 `;
 
 export const AmountContainer = styled.div``;
@@ -129,6 +115,14 @@ export const ChangeQuantityBlock = styled.div`
   align-items: center;
 `;
 
+export const AmountBox = styled.div`
+  width: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const IconContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -143,5 +137,4 @@ export const IconContainer = styled.div`
 export const Amount = styled.div`
   font-size: 24px;
   font-weight: 500;
-  margin: 0 10px;
 `;

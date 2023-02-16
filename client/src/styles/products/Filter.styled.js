@@ -10,8 +10,9 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-weight: 500;
   margin: 0 0 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
 `;
 export const FilterContainer = styled.div`
   display: flex;
@@ -60,7 +61,8 @@ export const Select = styled.select`
 `;
 
 export const Option = styled.option`
-  &:hover {
-    background-color: red;
+  &:nth-child(1) {
+    background-color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.light};
   }
 `;

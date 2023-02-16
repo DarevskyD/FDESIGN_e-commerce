@@ -1,3 +1,7 @@
+import { Link } from 'react-router-dom';
+
+import { theme } from '../../styles/Theme';
+
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -5,7 +9,8 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import { Info, Container, Image, Icon } from '../../styles/home/ProductItem.styled';
 
 const ProductItem = ({ product }) => {
-  const { img } = product;
+  const { img, _id } = product;
+
   return (
     <Container>
       <Image src={img} />
@@ -14,7 +19,9 @@ const ProductItem = ({ product }) => {
           <ShoppingCartOutlinedIcon />
         </Icon>
         <Icon>
-          <SearchOutlinedIcon />
+          <Link to={`/product/${_id}`}>
+            <SearchOutlinedIcon style={{ color: theme.colors.primary }} />
+          </Link>
         </Icon>
         <Icon>
           <FavoriteBorderOutlinedIcon />

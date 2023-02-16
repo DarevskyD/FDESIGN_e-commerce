@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import nextId from 'react-id-generator';
+
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
@@ -17,9 +20,9 @@ import {
   FilterContainer,
   FilterTitle,
   FilterColorContainer,
-  FilterColorBox,
   FilterColor,
   IconContainer,
+  AmountBox,
   AmountContainer,
   QuantityContainer,
   QuantityTitle,
@@ -27,38 +30,38 @@ import {
   Amount,
 } from '../../styles/products/SelectedProduct.styled';
 
-const SelectedProduct = () => {
+const SelectedProduct = ({ product }) => {
+  const [quantity, setQuantity] = useState(1);
+
+  const changeQuantity = (type) => {
+    if (type === 'inc') {
+      setQuantity(quantity + 1);
+    } else {
+      quantity > 1 && setQuantity(quantity - 1);
+    }
+  };
+
   return (
     <Container>
       <Wrapper>
         <ImageContainer>
-          <Image src="https://images.pexels.com/photos/963486/pexels-photo-963486.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
+          <Image src={product.img} />
         </ImageContainer>
         <InfoContainer>
-          <Title>Black BURBANK</Title>
-          <Description>
-            Make a statement with minimalism with these durable and sleek wooden chairs. Made from
-            durable solid wood and painted black, the chairs have a lacquered, glossy finish. The
-            wide seat is complemented by a slanted, slatted backrest adding a twist to this classic
-            design to create a Scandi-inspired look. Pair them with a table in the dining room, or
-            enjoy them on their own in the kitchen or living room.
-          </Description>
+          <Title>{product.title}</Title>
+          <Description>{product.desc}</Description>
           <PriceContainer>
             <PriceTitle>Price:</PriceTitle>
-            <Price>120$</Price>
+            <Price>{product.price + ' $'}</Price>
           </PriceContainer>
           <FilterContainer>
             <FilterTitle>Color:</FilterTitle>
             <FilterColorContainer>
-              <FilterColorBox>
-                <FilterColor color="black"></FilterColor>
-              </FilterColorBox>
-              <FilterColorBox>
-                <FilterColor color="red"></FilterColor>
-              </FilterColorBox>
-              <FilterColorBox>
-                <FilterColor color="yellow"></FilterColor>
-              </FilterColorBox>
+              {product.color?.map((item) =>
+                item === 'all' ? null : (
+                  <FilterColor color={item === 'wood' ? '#A47449' : item} key={nextId()} />
+                ),
+              )}
             </FilterColorContainer>
           </FilterContainer>
           <AmountContainer>
@@ -66,11 +69,13 @@ const SelectedProduct = () => {
               <QuantityTitle>Quantity:</QuantityTitle>
               <ChangeQuantityBlock>
                 <IconContainer>
-                  <RemoveIcon />
+                  <RemoveIcon onClick={() => changeQuantity('dec')} />
                 </IconContainer>
-                <Amount>1</Amount>
+                <AmountBox>
+                  <Amount>{quantity}</Amount>
+                </AmountBox>
                 <IconContainer>
-                  <AddIcon />
+                  <AddIcon onClick={() => changeQuantity('inc')} />
                 </IconContainer>
               </ChangeQuantityBlock>
             </QuantityContainer>

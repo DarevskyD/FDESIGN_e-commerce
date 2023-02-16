@@ -12,3 +12,11 @@ export const Wrapper = styled.div`
     padding: 0 10px;
   }
 `;
+
+export const Message = styled.p`
+  width: 100%;
+  padding: 20px 0;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid ${({ theme }) => theme.colors.additionalMd};
+`;
