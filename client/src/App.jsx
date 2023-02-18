@@ -11,11 +11,12 @@ import Product from './pages/Product';
 import LogInPage from './pages/LogInPage';
 import SignInPage from './pages/SignInPage';
 import CartPage from './pages/CartPage';
+import CategoryPage from './pages/CategoryPage';
 
 const App = () => {
   const [toggle, setToggle] = useState(false);
 
-  const user = true;
+  const user = false;
 
   const toggleClick = () => {
     setToggle(!toggle);
@@ -38,6 +39,16 @@ const App = () => {
               path="/"
               element={
                 <Home
+                  toggle={toggle}
+                  toggleClick={toggleClick}
+                  handleClick={(e) => handleClick(e)}
+                />
+              }
+            />
+            <Route
+              path="/products/category"
+              element={
+                <CategoryPage
                   toggle={toggle}
                   toggleClick={toggleClick}
                   handleClick={(e) => handleClick(e)}

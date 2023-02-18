@@ -45,6 +45,7 @@ export const Logo = styled.h1`
   font-weight: 500;
   letter-spacing: 5px;
   padding: 0 15px 0 0;
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 export const MainNav = styled.nav`
@@ -64,7 +65,7 @@ export const MainNav = styled.nav`
   }
 `;
 
-export const MenuItemWrapper = styled.span`
+export const MenuItemWrapper = styled.div`
   display: flex;
   position: relative;
   margin: 0 30px 0 0;
@@ -76,7 +77,7 @@ export const MenuItemWrapper = styled.span`
   }
 `;
 
-export const MenuItem = styled.a`
+export const MenuItem = styled.span`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
@@ -100,7 +101,7 @@ export const MenuItem = styled.a`
   }
 
   @media only screen and (${device.md}) {
-    color: ${({ theme }) => theme.colors.light};
+    color: ${({ theme }) => theme.colors.light} !important;
     padding: 0 0 0 10px;
     &:after {
       top: 0;
@@ -184,5 +185,6 @@ export const RegistrationItem = styled.div`
 `;
 
 export const Cart = styled.div`
+  color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
 `;

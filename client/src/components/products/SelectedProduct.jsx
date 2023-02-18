@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import nextId from 'react-id-generator';
+import { v4 as uuidv4 } from 'uuid';
 
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
@@ -30,8 +30,13 @@ import {
   Amount,
 } from '../../styles/products/SelectedProduct.styled';
 
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../../redux/slices/cartSlice';
+
 const SelectedProduct = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
+
+  const dispatch = useDispatch();
 
   const changeQuantity = (type) => {
     if (type === 'inc') {
@@ -39,6 +44,10 @@ const SelectedProduct = ({ product }) => {
     } else {
       quantity > 1 && setQuantity(quantity - 1);
     }
+  };
+
+  const handleToCart = () => {
+    dispatch(addProduct({ ...product, quantity }));
   };
 
   return (
@@ -59,7 +68,7 @@ const SelectedProduct = ({ product }) => {
             <FilterColorContainer>
               {product.color?.map((item) =>
                 item === 'all' ? null : (
-                  <FilterColor color={item === 'wood' ? '#A47449' : item} key={nextId()} />
+                  <FilterColor color={item === 'wood' ? '#A47449' : item} key={uuidv4()} />
                 ),
               )}
             </FilterColorContainer>
@@ -80,7 +89,7 @@ const SelectedProduct = ({ product }) => {
               </ChangeQuantityBlock>
             </QuantityContainer>
           </AmountContainer>
-          <AddToCart>ADD TO CART</AddToCart>
+          <AddToCart onClick={handleToCart}>ADD TO CART</AddToCart>
         </InfoContainer>
       </Wrapper>
     </Container>

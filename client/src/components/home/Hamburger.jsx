@@ -7,11 +7,10 @@ import {
   BottomLine,
 } from '../../styles/home/Hamburger.styled';
 
-const Hamburger = ({ toggle, scrolled, toggleClick }) => {  
-
+const Hamburger = ({ toggle, scrolled, toggleClick }) => {
   return (
     <>
-      <HamburgerMenu scrolled={scrolled} onClick={() => toggleClick()}>
+      <HamburgerMenu scrolled={scrolled} onClick={toggleClick}>
         <HamburgerMenuLines>
           <TopLine toggle={toggle} />
           <CenterLine toggle={toggle} />

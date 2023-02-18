@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 
-import { theme } from '../../styles/Theme';
-
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -20,7 +18,7 @@ const ProductItem = ({ product }) => {
         </Icon>
         <Icon>
           <Link to={`/product/${_id}`}>
-            <SearchOutlinedIcon style={{ color: theme.colors.primary }} />
+            <SearchOutlinedIcon />
           </Link>
         </Icon>
         <Icon>

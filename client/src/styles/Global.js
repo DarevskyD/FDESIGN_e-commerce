@@ -64,6 +64,11 @@ a:not([class]) {
   text-decoration-skip-ink: auto;  
 }
 
+a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 a, button {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

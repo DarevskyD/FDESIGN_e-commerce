@@ -1,16 +1,18 @@
 import Announcement from '../components/home/Announcement';
 import Header from '../components/home/Header';
-import Cart from '../components/cart/Cart';
+import Search from '../components/home/Search';
+import Categories from '../components/home/Categories';
 import Newsletter from '../components/home/Newsletter';
 import Footer from '../components/home/Footer';
 
-const CartPage = ({ toggle, toggleClick, handleClick }) => {
+const CategoryPage = ({ toggle, toggleClick, handleClick }) => {
   return (
     <>
       <Announcement />
-      <Header />
+      <Header toggle={toggle} toggleClick={toggleClick} handleClick={(e) => handleClick(e)} />
       <main>
-        <Cart />
+        <Search />
+        <Categories />
         <Newsletter />
       </main>
       <Footer />
@@ -18,4 +20,4 @@ const CartPage = ({ toggle, toggleClick, handleClick }) => {
   );
 };
 
-export default CartPage;
+export default CategoryPage;

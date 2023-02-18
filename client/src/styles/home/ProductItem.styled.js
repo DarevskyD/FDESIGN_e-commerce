@@ -53,5 +53,5 @@ export const Icon = styled.div`
   &:hover {
     background-color: ${({ theme }) => theme.colors.tertiary};
     transform: scale(1.1);
-  }
+  }  
 `;

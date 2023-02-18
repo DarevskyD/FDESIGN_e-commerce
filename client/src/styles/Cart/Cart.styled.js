@@ -75,6 +75,9 @@ export const Hr = styled.hr`
   background-color: ${({ theme }) => theme.colors.lightBg};
   border: none;
   height: 1px;
+  &:last-child {
+    display: none;
+  }
 `;
 
 export const ProductDetails = styled.div`
@@ -144,8 +147,9 @@ export const ProductColor = styled.div`
 export const Color = styled.div`
   width: 20px;
   height: 20px;
+  margin: 0 5px 0 0;
   border-radius: 50%;
-  border: 1px solid ${({ theme }) => theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.colors.secondary};
   background-color: ${({ color }) => color};
 `;
 

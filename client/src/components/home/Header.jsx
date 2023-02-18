@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { theme } from '../../styles/Theme';
 import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
@@ -22,6 +25,7 @@ import {
 } from '../../styles/home/Header.styled';
 
 const Header = ({ toggle, toggleClick, handleClick }) => {
+  const quantity = useSelector((state) => state.cart.quantity);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -40,14 +44,20 @@ const Header = ({ toggle, toggleClick, handleClick }) => {
       <Wrapper scrolled={scrolled}>
         <LeftNav>
           <Hamburger toggle={toggle} scrolled={scrolled} toggleClick={toggleClick} />
-          <Logo>F_DESIGN</Logo>
+          <Link to="/">
+            <Logo>F_DESIGN</Logo>
+          </Link>
         </LeftNav>
         <MainNav toggle={toggle} onClick={(e) => handleClick(e)}>
           <MenuItemWrapper>
-            <MenuItem href="#">HOME</MenuItem>
+            <Link to="/">
+              <MenuItem>HOME</MenuItem>
+            </Link>
           </MenuItemWrapper>
           <MenuItemWrapper>
-            <MenuItem href="#">SHOP</MenuItem>
+            <Link to="/products/category">
+              <MenuItem>CATEGORY</MenuItem>
+            </Link>
           </MenuItemWrapper>
           <MenuItemWrapper>
             <MenuItem href="#">MAGAZINE</MenuItem>
@@ -56,21 +66,27 @@ const Header = ({ toggle, toggleClick, handleClick }) => {
         <RightNav>
           <Language toggle={toggle}>EN</Language>
           <Registration toggle={toggle}>
-            <RegistrationItem>LOGIN</RegistrationItem>
-            <RegistrationItem>SIGN IN</RegistrationItem>
+            <Link to="/login">
+              <RegistrationItem>LOGIN</RegistrationItem>
+            </Link>
+            <Link to="/register">
+              <RegistrationItem>SIGN IN</RegistrationItem>
+            </Link>
           </Registration>
-          <Cart>
-            <Badge
-              badgeContent={1}
-              sx={{
-                '& .MuiBadge-badge': {
-                  color: theme.colors.light,
-                  backgroundColor: theme.colors.additionalMd,
-                },
-              }}>
-              <ShoppingCartOutlinedIcon />
-            </Badge>
-          </Cart>
+          <Link to="/cart">
+            <Cart>
+              <Badge
+                badgeContent={quantity}
+                sx={{
+                  '& .MuiBadge-badge': {
+                    color: theme.colors.light,
+                    backgroundColor: theme.colors.additionalMd,
+                  },
+                }}>
+                <ShoppingCartOutlinedIcon />
+              </Badge>
+            </Cart>
+          </Link>
         </RightNav>
       </Wrapper>
     </Container>

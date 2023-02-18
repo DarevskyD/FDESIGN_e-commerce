@@ -49,13 +49,15 @@ export const SocialContainer = styled.div`
 export const SocialLink = styled.a`
   width: 35px;
   height: 35px;
-  border-radius: 50%;
-  color: white;
+  border-radius: 50%;  
   background-color: #${({ color }) => color};
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 10px 0 0;
+  svg {
+    color: ${({ theme }) => theme.colors.light};
+  }
 `;
 
 export const Right = styled.div`
