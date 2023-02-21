@@ -9,17 +9,17 @@ import ProductsList from '../components/home/ProductsList';
 import Newsletter from '../components/home/Newsletter';
 import Footer from '../components/home/Footer';
 
-const Products = ({ toggle, toggleClick, handleClick }) => {
+const Products = () => {
   const [filters, setFilters] = useState({});
   const [sorts, setSorts] = useState('');
 
   const location = useLocation();
-  const categ = location.pathname.split('/')[2];
+  const categ = location.pathname.split('/')[2];  
 
   const handleFilters = (e) => {
     const value = e.target.value;
     setFilters({ ...filters, [e.target.name]: value });
-  };  
+  };
 
   const handleSort = (e) => {
     const value = e.target.value;
@@ -29,7 +29,7 @@ const Products = ({ toggle, toggleClick, handleClick }) => {
   return (
     <>
       <Announcement />
-      <Header toggle={toggle} toggleClick={toggleClick} handleClick={(e) => handleClick(e)} />
+      <Header />
       <main>
         <Search />
         <Filter handleFilters={handleFilters} handleSort={handleSort} categ={categ} />

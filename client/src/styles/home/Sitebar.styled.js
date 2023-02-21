@@ -13,7 +13,7 @@ export const OverlayWrapper = styled.div`
     height: ${({ openSitebar }) => (openSitebar ? '100vh' : '0px')};
     background-color: rgba(80, 80, 80, 0.4);
     opacity: 1;
-    transition: all 0.5s;
+    transition: all 0.5s ease;
     z-index: 9;
   }
 `;
@@ -27,7 +27,7 @@ export const SitebarContainer = styled.div`
   top: 0;
   z-index: 10;
   transform: ${({ openSitebar }) => (openSitebar ? 'translateY(0)' : 'translateY(-100%)')};
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease;
 
   @media only screen and (${device.md}) {
     width: 50vw;
@@ -46,5 +46,5 @@ export const Wrapper = styled.div`
 
 export const MainMenu = styled.div`
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease;
 `;

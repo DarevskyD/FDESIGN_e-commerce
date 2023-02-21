@@ -5,11 +5,11 @@ import Categories from '../components/home/Categories';
 import Newsletter from '../components/home/Newsletter';
 import Footer from '../components/home/Footer';
 
-const CategoryPage = ({ toggle, toggleClick, handleClick }) => {
+const CategoriesPage = () => {
   return (
     <>
       <Announcement />
-      <Header toggle={toggle} toggleClick={toggleClick} handleClick={(e) => handleClick(e)} />
+      <Header />
       <main>
         <Search />
         <Categories />
@@ -20,4 +20,4 @@ const CategoryPage = ({ toggle, toggleClick, handleClick }) => {
   );
 };
 
-export default CategoryPage;
+export default CategoriesPage;

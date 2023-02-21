@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import { useState } from 'react';
 import GlobalStyles from './styles/Global';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/Theme';
@@ -11,22 +11,11 @@ import Product from './pages/Product';
 import LogInPage from './pages/LogInPage';
 import SignInPage from './pages/SignInPage';
 import CartPage from './pages/CartPage';
-import CategoryPage from './pages/CategoryPage';
+import CategoriesPage from './pages/CategoriesPage';
 
 const App = () => {
-  const [toggle, setToggle] = useState(false);
-
+  const toggle = useSelector((state) => state.toggle.active);
   const user = false;
-
-  const toggleClick = () => {
-    setToggle(!toggle);
-  };
-
-  const handleClick = (e) => {
-    if (e.target.classList.value === 'sc-cwSeag dzwSZS' && window.innerWidth <= '800') {
-      setToggle(!toggle);
-    }
-  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -34,86 +23,15 @@ const App = () => {
         <GlobalStyles toggle={toggle} />
         <Router>
           <Routes>
-            <Route
-              exact
-              path="/"
-              element={
-                <Home
-                  toggle={toggle}
-                  toggleClick={toggleClick}
-                  handleClick={(e) => handleClick(e)}
-                />
-              }
-            />
-            <Route
-              path="/products/category"
-              element={
-                <CategoryPage
-                  toggle={toggle}
-                  toggleClick={toggleClick}
-                  handleClick={(e) => handleClick(e)}
-                />
-              }
-            />
-            <Route
-              path="/products/:category"
-              element={
-                <Products
-                  toggle={toggle}
-                  toggleClick={toggleClick}
-                  handleClick={(e) => handleClick(e)}
-                />
-              }
-            />
-            <Route
-              path="/product/:id"
-              element={
-                <Product
-                  toggle={toggle}
-                  toggleClick={toggleClick}
-                  handleClick={(e) => handleClick(e)}
-                />
-              }
-            />
-            <Route
-              path="/login"
-              element={
-                user ? (
-                  <Navigate to="/" replace />
-                ) : (
-                  <LogInPage
-                    toggle={toggle}
-                    toggleClick={toggleClick}
-                    handleClick={(e) => handleClick(e)}
-                  />
-                )
-              }
-            />
+            <Route exact path="/" element={<Home />} />
+            <Route path="/categories" element={<CategoriesPage />} />
+            <Route path="/products/:category" element={<Products />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/login" element={user ? <Navigate to="/" replace /> : <LogInPage />} />
 
-            <Route
-              path="/register"
-              element={
-                user ? (
-                  <Navigate to="/" replace />
-                ) : (
-                  <SignInPage
-                    toggle={toggle}
-                    toggleClick={toggleClick}
-                    handleClick={(e) => handleClick(e)}
-                  />
-                )
-              }
-            />
-            <Route
-              path="/cart"
-              element={
-                <CartPage
-                  toggle={toggle}
-                  toggleClick={toggleClick}
-                  handleClick={(e) => handleClick(e)}
-                />
-              }
-            />
+            <Route path="/register" element={user ? <Navigate to="/" replace /> : <SignInPage />} />
+            <Route path="/cart" element={<CartPage />} />
           </Routes>
         </Router>
       </>

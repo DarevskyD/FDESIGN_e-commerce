@@ -13,7 +13,7 @@ const Filter = ({ handleFilters, handleSort, categ }) => {
   return (
     <Container>
       <Wrapper>
-        <Title>{categ.toUpperCase()}</Title>
+        <Title>{categ}</Title>
         <FilterContainer>
           <FilterItem>
             <FilterName>Filter:</FilterName>

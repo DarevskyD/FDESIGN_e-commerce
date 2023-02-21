@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import { ItemContainer, Image, Info, Title } from '../../styles/home/CategoryItem.styled';
 import { Button } from '../../styles/universal/Button.styled';
 
-const CategoryItem = ({ item }) => {
-  const { img, title, categ } = item;
+const CategoryItem = ({ category }) => {
+  const { img, title, categ } = category;  
 
   return (
     <ItemContainer>

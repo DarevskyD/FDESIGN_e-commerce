@@ -9,7 +9,7 @@ import Footer from '../components/home/Footer';
 import { useEffect } from 'react';
 import { publicRequest } from '../request';
 
-const Product = ({ toggle, toggleClick, handleClick }) => {
+const Product = () => {
   const [product, setProduct] = useState({});
 
   const location = useLocation();
@@ -30,7 +30,7 @@ const Product = ({ toggle, toggleClick, handleClick }) => {
   return (
     <>
       <Announcement />
-      <Header toggle={toggle} toggleClick={toggleClick} handleClick={(e) => handleClick(e)} />
+      <Header />
       <SelectedProduct product={product} />
       <Newsletter />
       <Footer />

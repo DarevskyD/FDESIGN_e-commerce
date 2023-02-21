@@ -4,11 +4,11 @@ import LogIn from '../components/register/LogIn';
 import Newsletter from '../components/home/Newsletter';
 import Footer from '../components/home/Footer';
 
-const LoginPage = ({ toggle, toggleClick, handleClick }) => {
+const LoginPage = ({ handleClick }) => {
   return (
     <>
       <Announcement />
-      <Header toggle={toggle} toggleClick={toggleClick} handleClick={(e) => handleClick(e)} />
+      <Header />
       <main>
         <LogIn />
         <Newsletter />

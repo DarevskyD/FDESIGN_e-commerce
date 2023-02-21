@@ -13,6 +13,7 @@ export const Title = styled.h2`
   margin: 0 0 10px;
   font-weight: 500;
   letter-spacing: 1px;
+  text-transform: uppercase;
 `;
 export const FilterContainer = styled.div`
   display: flex;

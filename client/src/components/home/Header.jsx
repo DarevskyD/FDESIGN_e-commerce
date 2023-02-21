@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { handleClick } from '../../redux/slices/toggleSlice';
 
 import { theme } from '../../styles/Theme';
 import Badge from '@mui/material/Badge';
@@ -24,8 +25,16 @@ import {
   Cart,
 } from '../../styles/home/Header.styled';
 
-const Header = ({ toggle, toggleClick, handleClick }) => {
+const Header = () => {
   const quantity = useSelector((state) => state.cart.quantity);
+  const toggle = useSelector((state) => state.toggle.active);  
+  const dispatch = useDispatch();
+
+
+  const getTargetValue = (e) => {
+    dispatch(handleClick(e.target.classList.value));
+  };
+
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -43,27 +52,29 @@ const Header = ({ toggle, toggleClick, handleClick }) => {
       <Sitebar toggle={toggle} />
       <Wrapper scrolled={scrolled}>
         <LeftNav>
-          <Hamburger toggle={toggle} scrolled={scrolled} toggleClick={toggleClick} />
+          <Hamburger toggle={toggle} scrolled={scrolled} />
           <Link to="/">
             <Logo>F_DESIGN</Logo>
           </Link>
         </LeftNav>
-        <MainNav toggle={toggle} onClick={(e) => handleClick(e)}>
+        <MainNav toggle={toggle} onClick={(e) => getTargetValue(e)}>
           <MenuItemWrapper>
             <Link to="/">
               <MenuItem>HOME</MenuItem>
             </Link>
           </MenuItemWrapper>
           <MenuItemWrapper>
-            <Link to="/products/category">
+            <Link to="/categories">
               <MenuItem>CATEGORY</MenuItem>
             </Link>
           </MenuItemWrapper>
           <MenuItemWrapper>
-            <MenuItem href="#">MAGAZINE</MenuItem>
+            <Link to="/products">
+              <MenuItem>PRODUCTS</MenuItem>
+            </Link>
           </MenuItemWrapper>
         </MainNav>
-        <RightNav>
+        <RightNav onClick={(e) => getTargetValue(e)}>
           <Language toggle={toggle}>EN</Language>
           <Registration toggle={toggle}>
             <Link to="/login">

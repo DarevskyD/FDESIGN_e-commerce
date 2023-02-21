@@ -4,7 +4,7 @@ import Cart from '../components/cart/Cart';
 import Newsletter from '../components/home/Newsletter';
 import Footer from '../components/home/Footer';
 
-const CartPage = ({ toggle, toggleClick, handleClick }) => {
+const CartPage = () => {
   return (
     <>
       <Announcement />

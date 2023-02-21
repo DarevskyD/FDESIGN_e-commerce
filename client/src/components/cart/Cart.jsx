@@ -113,12 +113,12 @@ const Cart = () => {
               </SummaryItem>
               <SummaryItem>
                 <SummaryItemText>Shipping Discount:</SummaryItemText>
-                <SummaryItemPrice>{cart.total > 100 ? '-10 $' : '0 $'}</SummaryItemPrice>
+                <SummaryItemPrice>{cart.total >= 100 ? '-10 $' : '0 $'}</SummaryItemPrice>
               </SummaryItem>
               <SummaryItem type="total">
                 <SummaryItemText>Total:</SummaryItemText>
                 <SummaryItemPrice>
-                  {cart.total > 100 || cart.total === 0 ? cart.total : cart.total + 10} $
+                  {cart.total >= 100 || cart.total === 0 ? cart.total : cart.total + 10} $
                 </SummaryItemPrice>
               </SummaryItem>
               <CheckoutButton>CHECKOUT NOW</CheckoutButton>

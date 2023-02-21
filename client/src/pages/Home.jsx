@@ -7,11 +7,11 @@ import ProductsList from '../components/home/ProductsList';
 import Newsletter from '../components/home/Newsletter';
 import Footer from '../components/home/Footer';
 
-const Home = ({ toggle, toggleClick, handleClick }) => {
+const Home = () => {
   return (
     <>
       <Announcement />
-      <Header toggle={toggle} toggleClick={toggleClick} handleClick={(e) => handleClick(e)} />
+      <Header />
       <main>
         <Search />
         <Slider />

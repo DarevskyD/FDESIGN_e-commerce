@@ -59,3 +59,21 @@ export const CheckoutButton = styled(Button)`
   border: 1px solid ${({ theme }) => theme.colors.additionalMd};
   background-color: ${({ theme }) => theme.colors.additionalMd};
 `;
+
+export const NextButton = styled(Button)`
+  margin: 10px 5px 0 5px;
+  color: ${({ theme }) => theme.colors.light};
+  border: 1px solid
+    ${({ disabled }) => (disabled ? theme.colors.middleBg : theme.colors.additionalMd)};
+  background-color: ${({ disabled }) =>
+    disabled ? theme.colors.middleBg : theme.colors.additionalMd};
+`;
+
+export const PrevButton = styled(Button)`
+  margin: 10px 5px 0 5px;
+  color: ${({ theme }) => theme.colors.light};
+  border: 1px solid
+    ${({ disabled }) => (disabled ? theme.colors.middleBg : theme.colors.additionalMd)};
+  background-color: ${({ disabled }) =>
+    disabled ? theme.colors.middleBg : theme.colors.additionalMd};
+`;
